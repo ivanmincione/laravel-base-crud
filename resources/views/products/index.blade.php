@@ -7,12 +7,12 @@
                 <h1 class="uppercase text-center">i nostri prodotti</h1>
                 <table class="table">
                     <thead>
-                        <tr>
+                        
                             <th class="uppercase" scope="col">ID</th>
                             <th class="uppercase" scope="col">Nome</th>
                             <th class="uppercase" scope="col">Prezzo</th>
                             <th class="uppercase" scope="col">Descrizione</th>
-                        </tr>
+
                     </thead>
                     <tbody>
                         @foreach ($products as $product)

@@ -10944,7 +10944,58 @@ a.text-dark:focus {
   }
 }
 
+body {
+  background-color: #005580;
+}
+
+li {
+  list-style-type: none;
+}
+
+h1 {
+  color: white;
+  margin-bottom: 20px;
+}
+
 .uppercase {
   text-transform: uppercase;
+}
+
+.container-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 200px;
+}
+
+.container-home h1 {
+  color: white;
+  font-size: 64px;
+}
+
+.menu-header {
+  border-bottom: 1px solid white;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+
+.menu-header ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-header ul li {
+  margin-right: 40px;
+}
+
+.menu-header ul li a {
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.menu-header ul li a:hover {
+  color: white;
+  border-bottom: 2px solid white;
 }
 
