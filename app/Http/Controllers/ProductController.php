@@ -49,7 +49,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id); //quando il prarametro $id è uguale al id del prodotto...
+        if($product) {
+            $data = [
+                'product' => $product
+            ];
+            return view('products.show', $data);
+        } else {
+            abort(404);
+        }
     }
 
     /**
