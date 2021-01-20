@@ -2,7 +2,7 @@
 
 @section("content")
     <div class="container">
-        <h1 class="uppercase">Home products</h1>
+        <h1 class="uppercase">Benvenuti</h1>
 
     </div>
 @endsection
