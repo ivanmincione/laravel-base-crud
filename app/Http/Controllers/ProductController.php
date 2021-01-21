@@ -27,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -38,7 +38,20 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //recupero i dati attraverso all() e li assegno a $data
+        $data = $request->all();
+        //creo una nuova istanza
+        $product = new Product();
+        $product->fill($data);
+        // utilizzo il metodo fill() oppure le creo manualmente
+        //$product->name = $data["name"];
+        //$product->price = $data["price"];
+        //$product->description = $data["description"];
+
+        $product->save(); //salva i dati inseriti nel form
+
+        //i dati si devono ridirezionare alla rotta dove si vogliono visualizzare
+        return redirect()->route("products.index");
     }
 
     /**
@@ -47,9 +60,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product) // passando ciò come parametri alla funzione show ottengo lo stesso risultato di ::find
     {
-        $product = Product::find($id); //quando il prarametro $id è uguale al id del prodotto...
+        // $product = Product::find($id); //quando il prarametro $id è uguale al id del prodotto...
         if($product) {
             $data = [
                 'product' => $product
