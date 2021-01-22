@@ -5,6 +5,9 @@
         <div class="row">
             <div class="col-12">
                 <h1 class="uppercase text-center">i nostri prodotti</h1>
+                <a class="btn btn-primary uppercase" href="{{ route('products.create') }}">
+                    nuovo
+                </a>
                 <table class="table">
                     <thead>
                         <tr>
@@ -36,15 +39,26 @@
                                         class="btn btn-primary">
                                         <i class="fas fa-2x fa-info-circle"></i>
                                     </a>
+                                    <a href="{{ route('products.edit', ['product' => $product->id ]) }}"
+                                        class="btn btn-primary">
+                                        Modifica
+                                    </a>
+                                    {{-- creo un form per DESTROY --}}
+                                    <form method="POST" class="d-inline-block"
+                                    action="{{ route('products.destroy', ['product' => $product->id]) }}">
+                                        @csrf
+                                        @method("DELETE")
+                                        <button type="submit" class="btn btn-danger">
+                                            Cancella
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
 
-                <a class="btn btn-primary uppercase" href="{{ route('products.create') }}">
-                    nuovo
-                </a>
+
 
             </div>
         </div>

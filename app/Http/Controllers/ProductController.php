@@ -51,7 +51,7 @@ class ProductController extends Controller
         $product->save(); //salva i dati inseriti nel form
 
         //i dati si devono ridirezionare alla rotta dove si vogliono visualizzare
-        return redirect()->route("products.index");
+        return redirect()->route('products.show', ['product' => $product->id]);
     }
 
     /**
@@ -79,9 +79,15 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        if($product) {
+            $data = [
+                'product' => $product
+            ];
+            return view('products.edit', $data);
+        }
+        abort(404);
     }
 
     /**
@@ -91,9 +97,11 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $data = $request->all();
+        $product->update($data);
+        return redirect()->route('products.show', ['product' => $product->id]);
     }
 
     /**
@@ -102,8 +110,9 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }
