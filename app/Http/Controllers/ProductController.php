@@ -51,7 +51,7 @@ class ProductController extends Controller
         $product->save(); //salva i dati inseriti nel form
 
         //i dati si devono ridirezionare alla rotta dove si vogliono visualizzare
-        return redirect()->route('products.show', ['product' => $product->id]);
+        return redirect()->route('products.show', ['product' => $product->id])->with('success', 'Salvataggio avvenuto correttamente');
     }
 
     /**
@@ -101,7 +101,7 @@ class ProductController extends Controller
     {
         $data = $request->all();
         $product->update($data);
-        return redirect()->route('products.show', ['product' => $product->id]);
+        return redirect()->route('products.show', ['product' => $product->id])->with('success', 'Salvataggio avvenuto correttamente');
     }
 
     /**

@@ -5,6 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center ">
+                @include('partials.success-message')
                 <div class="card">
                     <img class="card-img-top" src="..." alt="Codice Prodotto {{ $product->id }}">
                     <div class="card-body">
